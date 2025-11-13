@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -18,11 +18,25 @@
   color: white;
 } */
 
+.App-body {
+  background-color: #5f6a7e;
+  min-height: 95vh;
+  /* display: flex; */
+}
+
+.Battery-charge {
+  font-size: calc(40px + 2vmin);
+}
+
 .Toolbar {
   background-color: #282c34;
-  /* min-height: 20vh; */
+  min-height: 5vh;
   display: flex;
   justify-content: space-between;
   /* font-size: calc(10px + 2vmin); */
   color: white;
+}
+
+.Value {
+  margin-left: 20px;
 }

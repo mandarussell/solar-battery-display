@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 function Clock() {
-    const [time, setTime] = useState(new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}));
+    const [time, setTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
 
     useEffect(() => {
-    const timer = setInterval(() => {
-    setTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}));
-    }, 1000);
+        const timer = setInterval(() => {
+            setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        }, 1000);
 
-    // Clean up the timer when the component unmounts
-    return () => clearInterval(timer);
+        // Clean up the timer when the component unmounts
+        return () => clearInterval(timer);
     }, []);
 
     return (
@@ -20,14 +20,14 @@ function Clock() {
 }
 
 const styles = {
-container: {
-textAlign: "left",
-fontFamily: "Arial, sans-serif",
-},
-time: {
-fontSize: "15px",
-color: "#ffffffff",
-},
+    container: {
+        textAlign: "left",
+        fontFamily: "Arial, sans-serif",
+    },
+    time: {
+        fontSize: "15px",
+        color: "#ffffffff",
+    },
 };
 
 export default Clock;
