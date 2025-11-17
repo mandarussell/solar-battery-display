@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import Clock from './Clock';
 import AlertIcon from './AlertIcon';
+import Data from './Data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -25,6 +25,7 @@ function App() {
             <FontAwesomeIcon icon="fa-solid fa-battery-full" />
             <span className="Value">{batteryChargeString}</span>
           </div>
+          <Data />
         </div>
       </header>
     </div>
