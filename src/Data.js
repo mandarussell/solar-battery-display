@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Services from './Services';
+import { getSystemData } from './Services';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -10,7 +10,7 @@ library.add(fas);
 function Data() {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const INVERTER = process.env.REACT_APP_INVERTER;
-    const [response, setResponse] = useState('');
+    const [response, setResponse] = useState(null);
 
     useEffect(() => {
         // const url = new URL(
@@ -24,15 +24,23 @@ function Data() {
         };
 
         const fetchJSON = async () => {
-            let response = await Services(url, headers);
+            let response = await getSystemData(url, headers);
             setResponse(response);
         };
         fetchJSON();
     }, [API_KEY]); // !Need to add timer in here [] to ensure this runs when time has changed!
 
+    if (response == null) {
+        return (
+            <div styles={styles.container}>
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
     return (
         // Place holder. Actually build up data from the returned JSON.
-        <div>
+        <div styles={styles.container}>
             <div styles={styles.battery}>
                 <FontAwesomeIcon icon="fa-solid fa-battery-full" />
                 <span styles={styles.value}>{response.battery.percent}%</span>
@@ -47,7 +55,6 @@ function Data() {
             </div>
             <p>API: {API_KEY}</p>
             <p>INVERTER: {INVERTER}</p>
-            <p>Response JSON: {response.status}</p>
         </div >
     );
 }
@@ -56,6 +63,7 @@ const styles = {
     container: {
         textAlign: "left",
         fontFamily: "Arial, sans-serif",
+        color: "#000000ff",
     },
     battery: {
         fontSize: "40px",
@@ -70,7 +78,7 @@ const styles = {
         color: "#000000ff",
     },
     value: {
-        marginLeft: "20px",
+        padding: "20px",
     },
 };
 

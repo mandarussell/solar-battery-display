@@ -1,29 +1,29 @@
+const LIVE_MODE = false;
 
-async function Services(url, headers) {
-    // connect() {
-    // !For live only!
-    //
-    //
-    // let response;
-    // try {
-    //     response = fetch(url, {
-    //         method: "GET",
-    //         headers,
-    //     });
-    // } catch (error) {
-    //     console.error(error.message);
-    //     return;
-    // }
-    // if (!response.ok) {
-    //     throw new Error(`Get latest system data status: ${response.status}`);
-    // }
-    //
-    // const data = await response.json();
-    //
-    // !End live code!
+export async function getSystemData(url, headers) {
+    if (LIVE_MODE) {
+        // !For live only!
+        //
+        // let response;
+        // try {
+        //     response = fetch(url, {
+        //         method: "GET",
+        //         headers,
+        //     });
+        // } catch (error) {
+        //     console.error(error.message);
+        //     return;
+        // }
+        // if (!response.ok) {
+        //     throw new Error(`Get latest system data status: ${response.status}`);
+        // }
+        //
+        // const data = await response.json();
+        // return data
+    }
 
-    // !For testing only!
-    let data = {
+    return {
+        // Test JSON response.
         "time": "1990-08-30T03:23:58Z",
         "status": "Normal",
         "solar": {
@@ -62,8 +62,6 @@ async function Services(url, headers) {
             "eps_power": 155
         },
         "consumption": 15877
-    }
-    return data;
+    };
 };
 
-export default Services;
