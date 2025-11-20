@@ -40,21 +40,23 @@ function Data() {
 
     return (
         // Place holder. Actually build up data from the returned JSON.
-        <div styles={styles.container}>
-            <div styles={styles.battery}>
+        <div style={styles.container}>
+            <div style={styles.battery}>
                 <FontAwesomeIcon icon="fa-solid fa-battery-full" />
-                <span styles={styles.value}>{response.battery.percent}%</span>
+                <span style={styles.value}>{response.battery.percent}%</span>
             </div>
-            <div styles={styles.solar}>
+            <div style={styles.battery}>
+                <FontAwesomeIcon icon="fa-solid fa-bolt" />
+                <span style={styles.value}>{response.inverter.power}</span>
+            </div>
+            <div style={styles.solar}>
                 <FontAwesomeIcon icon="fa-solid fa-solar-panel" />
-                <span styles={styles.value}>{response.solar.power}</span>
+                <span style={styles.value}>{response.solar.power}</span>
             </div>
-            <div styles={styles.grid}>
+            <div style={styles.grid}>
                 <FontAwesomeIcon icon="fa-solid fa-plug-circle-bolt" />
-                <span styles={styles.value}>{response.grid.power}</span>
+                <span style={styles.value}>{response.grid.power}</span>
             </div>
-            <p>API: {API_KEY}</p>
-            <p>INVERTER: {INVERTER}</p>
         </div >
     );
 }
@@ -78,7 +80,7 @@ const styles = {
         color: "#000000ff",
     },
     value: {
-        padding: "20px",
+        marginLeft: "30px",
     },
 };
 
