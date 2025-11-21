@@ -1,6 +1,5 @@
 import './App.css';
 import Clock from './Clock';
-import AlertIcon from './AlertIcon';
 import Data from './Data';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
       <header className="App-header">
         <div className="Toolbar">
           <Clock />
-          <AlertIcon />
         </div>
         <div className="App-body">
           <Data />

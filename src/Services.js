@@ -50,7 +50,7 @@ export async function getSystemData(url, headers) {
             "frequency": 86.5
         },
         "battery": {
-            "percent": 78,
+            "percent": 30,
             "power": 1711,
             "temperature": 73.2
         },

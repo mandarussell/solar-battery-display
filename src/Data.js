@@ -39,13 +39,14 @@ function Data() {
     }
 
     return (
-        // Place holder. Actually build up data from the returned JSON.
         <div style={styles.container}>
             <div style={styles.battery}>
                 <FontAwesomeIcon icon="fa-solid fa-battery-full" />
-                <span style={styles.value}>
-                    <span>{response.battery.percent}%</span>
-                    <span style={styles.temperature}>{response.battery.temperature}°C</span>
+                <span style={response.battery.percent <= 30 && response.solar.power <= 100 ? styles.alert : styles.value}>
+                    {response.battery.percent}%
+                </span>
+                <span style={response.battery.temperature <= 2 ? styles.alert : styles.value}>
+                    {response.battery.temperature}°C
                 </span>
             </div>
             <div style={styles.battery}>
@@ -86,8 +87,9 @@ const styles = {
         fontSize: "30px",
         marginLeft: "30px",
     },
-    temperature: {
+    alert: {
         color: "#8f0000ff",
+        fontSize: "30px",
         marginLeft: "30px",
     },
 };
