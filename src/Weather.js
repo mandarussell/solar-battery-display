@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getWeatherData } from './Services';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
 
-/* import all the icons in Free Solid */
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas);
 
 function Weather() {
     const [response, setResponse] = useState(null);
@@ -26,18 +21,36 @@ function Weather() {
         );
     }
 
+    let index = new Date().toLocaleTimeString([], { hour: '2-digit' });
+    index++;
+    const average = (response.hourly.cloud_cover[30] + response.hourly.cloud_cover[42]) / 12;
+
     return (
-        <div>
-            <div>
-                <span>Next hour: </span>
-                <FontAwesomeIcon icon="fa-solid fa-cloud-sun" />
-            </div>
-            <div>
-                <span>Tomorrow: </span>
-                <FontAwesomeIcon icon="fa-solid fa-sun" />
-            </div>
+        <div style={styles.container}>
+            <h1 style={styles.h1}>Cloud cover</h1>
+            <span style={styles.title}>Next Hour: </span>
+            <span>{response.hourly.cloud_cover[index]} %</span>
+            <span style={styles.divide}> | </span>
+            <span style={styles.title}>Tomorrow's Average: </span>
+            <span>{average.toFixed()} %</span>
         </div >
     );
 }
+
+const styles = {
+    container: {
+        textAlign: "left",
+        fontFamily: "Arial, sans-serif",
+    },
+    h1: {
+        margin: "20px auto 5px auto",
+    },
+    divide: {
+        margin: "auto 30px auto 30px",
+    },
+    title: {
+        fontWeight: "bold",
+    },
+};
 
 export default Weather;
