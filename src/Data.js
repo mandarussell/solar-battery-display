@@ -42,7 +42,7 @@ function Data() {
         <div style={styles.container}>
             <div style={styles.battery}>
                 <FontAwesomeIcon icon="fa-solid fa-battery-full" />
-                <span style={response.battery.percent <= 30 && response.solar.power <= 100 ? styles.alert : styles.value}>
+                <span style={response.battery.percent <= 30 && response.solar.power <= 500 ? styles.alert : styles.value}>
                     {response.battery.percent}%
                 </span>
                 <span style={response.battery.temperature <= 2 ? styles.alert : styles.value}>
@@ -59,7 +59,9 @@ function Data() {
             </div>
             <div style={styles.grid}>
                 <FontAwesomeIcon icon="fa-solid fa-plug-circle-bolt" />
-                <span style={styles.value}>{response.grid.power} W</span>
+                <span style={response.grid.power < 0 ? styles.value : styles.export}>
+                    {response.grid.power} W
+                </span>
             </div>
         </div >
     );
@@ -89,6 +91,11 @@ const styles = {
     },
     alert: {
         color: "#8f0000ff",
+        fontSize: "30px",
+        marginLeft: "30px",
+    },
+    export: {
+        color: "#009f52ff",
         fontSize: "30px",
         marginLeft: "30px",
     },

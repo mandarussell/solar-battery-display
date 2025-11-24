@@ -1,6 +1,7 @@
 import './App.css';
 import Clock from './Clock';
 import Data from './Data';
+import Weather from './Weather';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         </div>
         <div className="App-body">
           <Data />
+          <Weather />
         </div>
       </header>
     </div>

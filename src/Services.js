@@ -52,7 +52,7 @@ export async function getSystemData(url, headers) {
         "battery": {
             "percent": 30,
             "power": 1711,
-            "temperature": 73.2
+            "temperature": 78.2
         },
         "inverter": {
             "temperature": 55.2,
@@ -65,3 +65,45 @@ export async function getSystemData(url, headers) {
     };
 };
 
+export async function getWeatherData(latitude, longitude) {
+    if (LIVE_MODE) {
+        // // !For live only!
+        //
+        // let response;
+        // const LATITUDE = process.env.REACT_LATITUDE;
+        // const LONGITUDE = process.env.REACT_LONGITUDE;
+        // const url = `https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&hourly=direct_radiation,direct_radiation_instant,terrestrial_radiation,terrestrial_radiation_instant,shortwave_radiation_instant,shortwave_radiation,cloud_cover`;
+        // try {
+        //     response = fetch(url, {
+        //         method: "GET",
+        //     });
+        // } catch (error) {
+        //     console.error(error.message);
+        //     return;
+        // }
+        // if (!response.ok) {
+        //     throw new Error(`Get weather data status: ${response.status}`);
+        // }
+        //
+        // const data = await response.json();
+        // return data
+    };
+
+    return {
+        // Test data returned.
+        "latitude": 52.52,
+        "longitude": 13.419,
+        "elevation": 44.812,
+        "generationtime_ms": 2.2119,
+        "utc_offset_seconds": 0,
+        "timezone": "Europe/Berlin",
+        "timezone_abbreviation": "CEST",
+        "hourly": {
+            "time": ["2022-07-01T00:00", "2022-07-01T01:00", "2022-07-01T02:00"],
+            "temperature_2m": [13, 12.7, 12.7, 12.5, 12.5, 12.8, 13, 12.9, 13.3]
+        },
+        "hourly_units": {
+            "temperature_2m": "°C"
+        }
+    };
+};
