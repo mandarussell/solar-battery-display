@@ -1,6 +1,7 @@
-/* .App {
-  text-align: center;
-} */
+.App {
+  /* text-align: center; */
+  background-color: #5f6a7e;
+}
 
 /* .App-header {
   background-color: #282c34;
@@ -16,6 +17,8 @@
 .App-body {
   background-color: #5f6a7e;
   min-height: 95vh;
+  margin-left: 15px;
+  margin-top: 5px;
   /* display: flex; */
 }
 

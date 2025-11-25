@@ -19,7 +19,7 @@ export async function getSystemData(url, headers) {
         // }
         //
         // const data = await response.json();
-        // return data
+        // return data;
     }
 
     return {
@@ -65,14 +65,62 @@ export async function getSystemData(url, headers) {
     };
 };
 
+export async function getPresets() {
+    if (LIVE_MODE) {
+        // const INVERTER = process.env.REACT_APP_INVERTER;
+        // const API_KEY = process.env.REACT_APP_API_KEY;
+        // const url = new URL (
+        //     `https://api.givenergy.cloud/v1/inverter/$(REACT_APP_INVERTER)/presets/consequatur`
+        // );
+
+        // const headers = {
+        //     "Authorization": `Bearer ${API_KEY}`,
+        //     "Content-Type": "application/json",
+        //     "Accept": "application/json",
+        // };
+        //
+        // let response;
+        // try {
+        //     response = fetch(url, {
+        //         method: "GET",
+        //         headers,
+        //     });
+        // } catch (error) {
+        //     console.error(error.message);
+        //     return;
+        // }
+        // if (!response.ok) {
+        //     throw new Error(`Get presets data status: ${response.status}`);
+        // }
+        //
+        // const data = await response.json();
+        // return data;
+    };
+
+    return {
+        // Test data returned.
+        "data": {
+            "enabled": true,
+            "slots": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "06:00",
+                    "percent_limit": 50
+                }
+            ]
+        }
+    };
+};
+
 export async function getWeatherData(latitude, longitude) {
     if (LIVE_MODE) {
         // // !For live only!
+        // // ?May not need weather code, consider before completing project?
         //
         // let response;
-        // const LATITUDE = process.env.REACT_LATITUDE;
-        // const LONGITUDE = process.env.REACT_LONGITUDE;
-        // const url = `https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&hourly=direct_radiation,direct_radiation_instant,terrestrial_radiation,terrestrial_radiation_instant,shortwave_radiation_instant,shortwave_radiation,cloud_cover&forecast_days=3`;
+        // const LATITUDE = process.env.REACT_APP_LATITUDE;
+        // const LONGITUDE = process.env.REACT_APP_LONGITUDE;
+        // const url = `https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&hourly=cloud_cover,weather_code&forecast_days=3`;
         // try {
         //     response = fetch(url, {
         //         method: "GET",
@@ -86,7 +134,7 @@ export async function getWeatherData(latitude, longitude) {
         // }
         //
         // const data = await response.json();
-        // return data
+        // return data;
     };
 
     return {
@@ -110,6 +158,7 @@ export async function getWeatherData(latitude, longitude) {
             "weather_code": [80, 61, 61, 80, 80, 80, 80, 80, 80, 80, 80, 3, 3, 80, 80, 80, 80, 80, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 61, 61, 61, 61, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 3]
         }
 
+        // // Test JSON if using radiation data
         // "latitude": 52.52,
         // "longitude": 13.419998,
         // "generationtime_ms": 0.18167495727539062,

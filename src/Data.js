@@ -45,9 +45,9 @@ function Data() {
                 <span style={response.battery.percent <= 30 && response.solar.power <= 500 ? styles.alert : styles.value}>
                     {response.battery.percent}%
                 </span>
-                <span style={response.battery.temperature <= 2 ? styles.alert : styles.value}>
+                {/* <span style={response.battery.temperature <= 2 ? styles.alert : styles.value}>
                     {response.battery.temperature}°C
-                </span>
+                </span> */}
             </div>
             <div style={styles.battery}>
                 <FontAwesomeIcon icon="fa-solid fa-bolt" />

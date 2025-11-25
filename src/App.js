@@ -1,6 +1,7 @@
 import './App.css';
 import Clock from './Clock';
 import Data from './Data';
+import TimedCharge from './TimedCharge';
 import Weather from './Weather';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <div className="App-body">
           <Data />
           <Weather />
+          <TimedCharge />
         </div>
       </header>
     </div>
