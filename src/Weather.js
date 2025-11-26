@@ -23,7 +23,17 @@ function Weather() {
 
     let index = new Date().toLocaleTimeString([], { hour: '2-digit' });
     index++;
-    const average = (response.hourly.cloud_cover[30] + response.hourly.cloud_cover[42]) / 12;
+
+    // Calculate the average percentage cloud cover for the following day based on a 
+    // specified window of peak daylight hours.
+    const startIndex = 24 + 9; // Where 2nd number represents start of peak daylight hours (i.e. 9 = 9am)
+    const totalHours = 8; // Number of hours to review
+    const endIndex = startIndex + totalHours;
+    let average = 0;
+    for (let i = startIndex; i <= endIndex; i++) {
+        average += response.hourly.cloud_cover[i];
+    }
+    average = average / totalHours;
 
     return (
         <div style={styles.container}>
