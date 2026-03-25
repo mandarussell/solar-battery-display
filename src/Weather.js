@@ -49,11 +49,15 @@ function Weather() {
 
 const styles = {
     container: {
+        border: "1px solid #929292",
+        margin: "20px auto 5px auto",
+        padding: "5px 5px 5px 5px",
+        // width: "fit-content",
         textAlign: "left",
         fontFamily: "Arial, sans-serif",
     },
     h1: {
-        margin: "20px auto 5px auto",
+        margin: "auto auto 5px auto",
     },
     divide: {
         margin: "auto 30px auto 30px",
