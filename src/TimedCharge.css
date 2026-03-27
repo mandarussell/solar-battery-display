@@ -47,6 +47,5 @@
 }
 
 .text {
-    /* display: inline-block; */
-    margin: auto auto auto 80px;
+    margin: auto auto auto 10px;
 }

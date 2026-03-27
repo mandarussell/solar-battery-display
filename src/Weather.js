@@ -11,7 +11,7 @@ function Weather() {
             setResponse(response);
         };
         fetchJSON();
-    },); // !Need to add timer in here [] to ensure this runs every hour!
+    }, []); // !Need to add timer in here [] to ensure this runs every hour!
 
     if (response == null) {
         return (
