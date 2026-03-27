@@ -11,7 +11,7 @@ function TimedCharge() {
             setResponse(response);
         };
         fetchJSON();
-    },); // !Need to add timer in here [] to ensure this runs when time has changed!
+    }, []); // !Need to add timer in here [] to ensure this runs when time has changed!
 
     if (response == null) {
         return (
@@ -21,14 +21,12 @@ function TimedCharge() {
     }
 
     return (
-        <div className="toggle-switch">
-            <div>
-                <label className="toggle-switch">
-                    <input type="checkbox" className="checkbox" defaultChecked={response.data.enabled} />
-                    <span className="slider"></span>
-                    <span className="text">Timed Charge Enabled</span>
-                </label>
-            </div>
+        <div>
+            <label className="toggle-switch">
+                <input type="checkbox" className="checkbox" defaultChecked={response.data.enabled} />
+                <span className="slider"></span>
+            </label>
+            <span className="text">Timed Charge Enabled</span>
         </div >
     );
 }
